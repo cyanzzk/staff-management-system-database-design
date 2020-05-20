@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理员-人事管理界面 </title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container" style="margin-top: 20px">
+<div class="panel-heading text-center"><h4>人事部门管理</h4></div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a class="btn btn-default" href="/user/add/">添加</a>
+            <button class="btn btn-primary" href="#">添加</button>
+            <table class="table table-hover text-center">
+                <tr>
+                    <th class="text-center">部门编号</th>
+                    <th class="text-center">部门名称</th>
+                    <th class="text-center">职能编号</th>
+                    <th class="text-center">上级部门编号</th>
+                    <th class="text-center">操作</th>
+                </tr>
+                {% for row in ds %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.depname }}</td>
+                        <td>{{ row.workid }}</td>
+                        <td>{{ row.topid }}</td>
+                        <td><a href="/user/edit/?id={{ row.id }}">编辑</a> <a
+                                href="/user/delete/?id={{ row.id }}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<div  style="margin-top: 20px">
+<div class="panel-heading text-center"><h4>人事档案管理</h4></div>
+</div >
+   <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a class="btn btn-default" href="/emp/add">添加</a>
+            <button class="btn btn-primary" href="">添加</button>
+            <table class="table table-hover text-center">
+                <tr>
+                    <th class="text-center">员工编号</th>
+                    <th class="text-center">头像</th>
+                    <th class="text-center">员工姓名</th>
+                    <th class="text-center">员工性别</th>
+                    <th class="text-center">民族</th>
+                    <th class="text-center">生日</th>
+                    <th class="text-center">政治面貌</th>
+                    <th class="text-center">文化程度</th>
+                    <th class="text-center">婚姻状况</th>
+                    <th class="text-center">籍贯</th>
+                    <th class="text-center">身份证号</th>
+                    <th class="text-center">手机号码</th>
+                    <th class="text-center">户口所在地</th>
+                    <th class="text-center">工作证号</th>
+                    <th class="text-center">入职日期</th>
+                    <th class="text-center">工作岗位</th>
+                    <th class="text-center">工作职务</th>
+                    <th class="text-center">上级员工编号</th>
+                    <th class="text-center">所在部门编号</th>
+                    <th class="text-center">员工状态</th>
+                    <th class="text-center">操作</th>
+                </tr>
+                {% for row in es %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td><img style="width: 50px;height: 50px;" src="/static/{{ row.pic }}" /></td>
+                        <td>{{ row.empname }}</td>
+                        <td>{{ row.sex }}</td>
+                        <td>{{ row.nation }}</td>
+                        <td>{{ row.birth }}</td>
+                        <td>{{ row.empstatus }}</td>
+                        <td>{{ row.edu }}</td>
+                        <td>{{ row.merr }}</td>
+                        <td>{{ row.address }}</td>
+                        <td>{{ row.idcard }}</td>
+                        <td>{{ row.phone }}</td>
+                        <td>{{ row.idAddress }}</td>
+                        <td>{{ row.idwork }}</td>
+                        <td>{{ row.datework }}</td>
+                        <td>{{ row.postwork }}</td>
+                        <td>{{ row.levelwork }}</td>
+                        <td>{{ row.topworkid }}</td>
+                        <td>{{ row.depid }}</td>
+                        <td>{{ row.statuswork }}</td>
+                        <td>{{ row.topid }}</td>
+
+                        <td><a href="/emp/edit/?id={{ row.id }}">编辑</a> <a
+                                href="/emp/delete/?id={{ row.id }}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous">
+</script>
+</html>
